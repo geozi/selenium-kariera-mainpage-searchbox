@@ -26,7 +26,9 @@ public class MainPageSearchBoxTest {
 
     @BeforeAll
     static void initializeFields() {
+
         System.out.println("\nRunning " + MainPageSearchBoxTest.class.getSimpleName() + "...");
+
         // Arrange
         chromeDriver = new ChromeDriver();
         actions = new Actions(chromeDriver);
@@ -38,6 +40,7 @@ public class MainPageSearchBoxTest {
 
     @BeforeEach
     void setUpWaiting() throws InterruptedException {
+
         actions.pause(Duration.ofSeconds(3)).perform();
     }
 
@@ -133,25 +136,53 @@ public class MainPageSearchBoxTest {
     @Order(6)
     @DisplayName("Clicking the search button test")
     void clickSearchButton() {
-        element = wait
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-testid=\"homepage-search-btn\"]")));
-        System.out.println("Clicking the search button test");
-        element.click();
+
+        // Act
+        try {
+
+            element = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-testid=\"homepage-search-btn\"]")));
+            System.out.println("Clicking the search button test");
+            element.click();
+
+        } catch (ElementNotInteractableException e) {
+            fail(e.getMessage());
+        }
+
     }
 
     @Test
     @Order(7)
     @DisplayName("Navigating back to main page test")
     void goBackToMainPage() {
-        System.out.println("Navigating back to main page...");
-        chromeDriver.navigate().back();
+
+        // Act
+        try {
+
+            System.out.println("Navigating back to main page...");
+            chromeDriver.navigate().back();
+
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+
     }
 
     @Test
     @Order(8)
     @DisplayName("Quitting the browser test")
     void quitBrowser() {
-        System.out.println("Quitting the browser test...");
-        chromeDriver.quit();
+
+        // Act
+        try {
+
+            System.out.println("Quitting the browser test...");
+            chromeDriver.quit();
+
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+
+
     }
 }
