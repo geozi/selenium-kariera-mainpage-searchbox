@@ -39,7 +39,7 @@ public class MainPageSearchBoxTest {
     }
 
     @BeforeEach
-    void setUpWaiting() throws InterruptedException {
+    void setUpWaiting() {
 
         actions.pause(Duration.ofSeconds(3)).perform();
     }
@@ -142,7 +142,7 @@ public class MainPageSearchBoxTest {
 
             element = wait
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-testid=\"homepage-search-btn\"]")));
-            System.out.println("Clicking the search button test");
+            System.out.println("Clicking the search button...");
             element.click();
 
         } catch (ElementNotInteractableException e) {
