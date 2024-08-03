@@ -111,4 +111,4 @@ For more information, please check the provided javadoc.
   </a>
 </p>
 
-[^1]: Disclaimer: This website is being tested for showcasing testing skills and does not constitute an endorsement or promotion.
+[^1]: Disclaimer: This website was tested in order to showcase the use of Selenium with Java and JUnit 5, and does not constitute an endorsement or promotion.
